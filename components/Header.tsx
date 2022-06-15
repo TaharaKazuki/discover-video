@@ -11,7 +11,9 @@ const Header = () => {
       <div className="flex space-x-4 items-center">
         <p className="link">Gmail</p>
         <p className="link">Images</p>
-        <User />
+        <p>
+          <User />
+        </p>
       </div>
     </header>
   )

@@ -17,6 +17,8 @@ const signin = ({
               className="w-52 object-cover"
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png"
               alt="google-logo"
+              width={260}
+              height={86}
             />
             <p className="text-sm italic my-10 text-center">
               This website is created for learning purposes
