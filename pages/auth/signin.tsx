@@ -14,17 +14,17 @@ const signin = ({
         {Object.values(providers!).map((provider) => (
           <div key={provider.name} className="flex flex-col items-center">
             <Image
-              className="w-52 object-cover"
+              className="object-cover w-52"
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png"
               alt="google-logo"
-              width={260}
-              height={86}
+              width={262}
+              height={89}
             />
-            <p className="text-sm italic my-10 text-center">
+            <p className="my-10 text-sm italic text-center">
               This website is created for learning purposes
             </p>
             <button
-              className="bg-red-400 rounded-lg text-white p-3 hover:bg-red-500"
+              className="p-3 text-white bg-red-400 hover:bg-red-500 rounded-lg"
               onClick={() => signIn(provider.id, { callbackUrl: '/' })}
             >
               Sign in with {provider.name}
