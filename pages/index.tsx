@@ -2,6 +2,7 @@ import Image from 'next/image'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 import { SearchIcon, MicrophoneIcon } from '@heroicons/react/solid'
 
 const Home: NextPage = () => {
@@ -38,6 +39,8 @@ const Home: NextPage = () => {
           <button className="btn">I m Feeling Lucky</button>
         </div>
       </form>
+
+      <Footer />
     </div>
   )
 }
