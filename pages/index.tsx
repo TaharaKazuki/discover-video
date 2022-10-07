@@ -1,7 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
+
+import Banner from 'components/banner/banner'
 
 const Home: NextPage = () => {
   return (
@@ -11,6 +12,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1>Netflix</h1>
+      <Banner
+        title="Clifford the red dog"
+        subTitle="a very cute dog"
+        imgUrl="/static/clifford.webp"
+      />
     </div>
   )
 }
