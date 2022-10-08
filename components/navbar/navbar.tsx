@@ -1,4 +1,5 @@
-import { FC, MouseEvent } from 'react'
+import { useState } from 'react'
+import type { FC, MouseEvent } from 'react'
 import styles from './navbar.module.scss'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
@@ -8,6 +9,8 @@ type Props = {
 }
 
 const NavBar: FC<Props> = ({ username }) => {
+  const [showDropdown, setShowDropdown] = useState(false)
+
   const router = useRouter()
 
   const handleOnClickHome = (e: MouseEvent<HTMLElement>) => {
@@ -18,6 +21,11 @@ const NavBar: FC<Props> = ({ username }) => {
   const handleOnClickMyList = (e: MouseEvent<HTMLElement>) => {
     e.preventDefault()
     router.push('/browse/my-list')
+  }
+
+  const handleShowDropdown = (e: MouseEvent<HTMLElement>) => {
+    e.preventDefault()
+    setShowDropdown(!showDropdown)
   }
 
   return (
@@ -36,18 +44,19 @@ const NavBar: FC<Props> = ({ username }) => {
         </ul>
         <nav className={styles.navContainer}>
           <div>
-            <button className={styles.usernameBtn}>
+            <button className={styles.usernameBtn} onClick={handleShowDropdown}>
               <p className={styles.username}>{username}</p>
             </button>
-
-            <div className={styles.navDropdown}>
-              <div>
-                <Link href="/login" passHref>
-                  <a className={styles.linkName}>Sign out</a>
-                </Link>
-                <div className={styles.lineWrapper}></div>
+            {showDropdown && (
+              <div className={styles.navDropdown}>
+                <div>
+                  <Link href="/login" passHref>
+                    <a className={styles.linkName}>Sign out</a>
+                  </Link>
+                  <div className={styles.lineWrapper}></div>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </nav>
       </div>
