@@ -28,7 +28,6 @@ const Card: FC<Props> = ({ imgUrl = IMG_URL, size = 'medium' }) => {
 
   return (
     <div className={styles.container}>
-      Card
       <motion.div className={cls(styles.motionWrapper, classMap[size])} whileHover={{ scale: 1.2 }}>
         <Image
           src={imgSrc}

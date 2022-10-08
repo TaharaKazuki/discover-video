@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.scss'
 
 import Banner from 'components/banner/banner'
 import NavBar from 'components/navbar/navbar'
+import SectionCards from 'components/card/section-cards'
 import Card from 'components/card/card'
 
 const Home: NextPage = () => {
@@ -19,9 +20,7 @@ const Home: NextPage = () => {
         subTitle="a very cute dog"
         imgUrl="/static/clifford.webp"
       />
-      <Card imgUrl="/static/clifford.webp" size="large" />
-      <Card size="medium" />
-      <Card imgUrl="/static/clifford.webp" size="small" />
+      <SectionCards title="Disney" />
     </div>
   )
 }
