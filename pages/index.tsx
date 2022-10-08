@@ -3,6 +3,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.scss'
 
 import Banner from 'components/banner/banner'
+import NavBar from 'components/navbar/navbar'
 
 const Home: NextPage = () => {
   return (
@@ -12,6 +13,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1>Netflix</h1>
+      <NavBar username="tahara.kazuki@example.com" />
       <Banner
         title="Clifford the red dog"
         subTitle="a very cute dog"
