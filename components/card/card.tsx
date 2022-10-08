@@ -2,13 +2,14 @@ import { useState } from 'react'
 import type { FC } from 'react'
 import Image from 'next/image'
 import styles from './card.module.scss'
+import { IMG_URL } from '../../constants/path'
 
 type Props = {
-  imgUrl: string
+  imgUrl?: string
   size: 'large' | 'medium' | 'small'
 }
 
-const Card: FC<Props> = ({ imgUrl = '/static/clifford.webp', size = 'medium' }) => {
+const Card: FC<Props> = ({ imgUrl = IMG_URL, size = 'medium' }) => {
   const [imgSrc, setImgSrc] = useState(imgUrl)
 
   const classMap = {
@@ -19,7 +20,7 @@ const Card: FC<Props> = ({ imgUrl = '/static/clifford.webp', size = 'medium' }) 
 
   const handleOnError = () => {
     console.info('error')
-    setImgSrc('/static/clifford.webp')
+    setImgSrc(IMG_URL)
   }
 
   return (
