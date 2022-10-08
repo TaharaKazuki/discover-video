@@ -12,7 +12,6 @@ const Home: NextPage = () => {
         <title>Netflix</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>Netflix</h1>
       <NavBar username="tahara.kazuki@example.com" />
       <Banner
         title="Clifford the red dog"
