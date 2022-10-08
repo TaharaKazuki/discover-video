@@ -4,6 +4,9 @@ import Image from 'next/image'
 import styles from './card.module.scss'
 import { IMG_URL } from '../../constants/path'
 
+import cls from 'classnames'
+import { motion } from 'framer-motion'
+
 type Props = {
   imgUrl?: string
   size: 'large' | 'medium' | 'small'
@@ -26,7 +29,7 @@ const Card: FC<Props> = ({ imgUrl = IMG_URL, size = 'medium' }) => {
   return (
     <div className={styles.container}>
       Card
-      <div className={classMap[size]}>
+      <motion.div className={cls(styles.motionWrapper, classMap[size])} whileHover={{ scale: 1.2 }}>
         <Image
           src={imgSrc}
           alt="image"
@@ -34,7 +37,7 @@ const Card: FC<Props> = ({ imgUrl = IMG_URL, size = 'medium' }) => {
           onError={handleOnError}
           className={styles.cardImg}
         />
-      </div>
+      </motion.div>
     </div>
   )
 }
