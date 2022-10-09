@@ -8,6 +8,12 @@ import SectionCards from 'components/card/section-cards'
 import Card from 'components/card/card'
 
 const Home: NextPage = () => {
+  const disneyVideos = [
+    { imgUrl: '/static/clifford.webp' },
+    { imgUrl: '/static/clifford.webp' },
+    { imgUrl: '/static/clifford.webp' },
+  ]
+
   return (
     <div className={styles.container}>
       <Head>
@@ -21,7 +27,8 @@ const Home: NextPage = () => {
         imgUrl="/static/clifford.webp"
       />
       <div className={styles.sectionWrapper}>
-        <SectionCards title="Disney" />
+        <SectionCards title="Disney" videos={disneyVideos} size="large" />
+        <SectionCards title="Disney" videos={disneyVideos} size="medium" />
       </div>
     </div>
   )

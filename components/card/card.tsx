@@ -3,13 +3,14 @@ import type { FC } from 'react'
 import Image from 'next/image'
 import styles from './card.module.scss'
 import { IMG_URL } from '../../constants/path'
+import { SizeType, ImgUrlType } from './types'
 
 import cls from 'classnames'
 import { motion } from 'framer-motion'
 
-type Props = {
-  imgUrl?: string
-  size: 'large' | 'medium' | 'small'
+export type Props = {
+  imgUrl?: ImgUrlType
+  size: SizeType
   id?: number
 }
 
