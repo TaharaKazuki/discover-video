@@ -1,17 +1,19 @@
-import type { NextPage } from 'next'
+import type { NextPage, GetServerSideProps } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Home.module.scss'
 
 import Banner from 'components/banner/banner'
 import NavBar from 'components/navbar/navbar'
 import SectionCards from 'components/card/section-cards'
-import Card from 'components/card/card'
+
 import { getVideos } from 'lib/video'
+import { VideoType } from '../components/card/types'
 
-const Home: NextPage = () => {
-  const disneyVideos = getVideos()
-  console.info(disneyVideos)
+type Props = {
+  disneyVideos: VideoType
+}
 
+const Home: NextPage<Props> = ({ disneyVideos }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -30,6 +32,16 @@ const Home: NextPage = () => {
       </div>
     </div>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const disneyVideos = getVideos()
+  console.info(disneyVideos)
+  return {
+    props: {
+      disneyVideos,
+    },
+  }
 }
 
 export default Home

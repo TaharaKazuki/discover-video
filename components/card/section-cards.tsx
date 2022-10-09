@@ -9,7 +9,8 @@ type Props = {
   videos: VideoType
 }
 
-const SectionCards: FC<Props> = ({ title, videos, size }) => {
+const SectionCards: FC<Props> = ({ title, videos = [], size }) => {
+  console.info(videos)
   return (
     <section className={styles.container}>
       <h2 className={styles.title}>{title}</h2>
