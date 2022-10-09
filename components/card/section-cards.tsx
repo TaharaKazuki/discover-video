@@ -1,12 +1,12 @@
 import type { FC } from 'react'
 import Card from './card'
 import styles from './section-cards.module.scss'
-import { SizeType, ImgUrlType } from './types'
+import { SizeType, VideoType } from './types'
 
 type Props = {
   title: string
   size: SizeType
-  videos: { imgUrl: ImgUrlType }[]
+  videos: VideoType
 }
 
 const SectionCards: FC<Props> = ({ title, videos, size }) => {

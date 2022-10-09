@@ -6,13 +6,11 @@ import Banner from 'components/banner/banner'
 import NavBar from 'components/navbar/navbar'
 import SectionCards from 'components/card/section-cards'
 import Card from 'components/card/card'
+import { getVideos } from 'lib/video'
 
 const Home: NextPage = () => {
-  const disneyVideos = [
-    { imgUrl: '/static/clifford.webp' },
-    { imgUrl: '/static/clifford.webp' },
-    { imgUrl: '/static/clifford.webp' },
-  ]
+  const disneyVideos = getVideos()
+  console.info(disneyVideos)
 
   return (
     <div className={styles.container}>
