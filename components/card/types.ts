@@ -9,6 +9,7 @@ export type VideoType = {
 
 export interface YoutubeApiResponse {
   items: Item[]
+  error?: Error
 }
 
 export interface Item {

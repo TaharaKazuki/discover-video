@@ -11,9 +11,11 @@ import { VideoType } from '../components/card/types'
 
 type Props = {
   disneyVideos: VideoType
+  productivityVideos: VideoType
+  travelVideos: VideoType
 }
 
-const Home: NextPage<Props> = ({ disneyVideos }) => {
+const Home: NextPage<Props> = ({ disneyVideos, productivityVideos, travelVideos }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -28,18 +30,23 @@ const Home: NextPage<Props> = ({ disneyVideos }) => {
       />
       <div className={styles.sectionWrapper}>
         <SectionCards title="Disney" videos={disneyVideos} size="large" />
-        <SectionCards title="Disney" videos={disneyVideos} size="medium" />
+        <SectionCards title="Productivity" videos={productivityVideos} size="medium" />
+        <SectionCards title="Popular" videos={travelVideos} size="small" />
       </div>
     </div>
   )
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const disneyVideos = await getVideos()
-  console.info(disneyVideos)
+  const disneyVideos = await getVideos('disney trailer')
+  const productivityVideos = await getVideos('Productivity')
+  const travelVideos = await getVideos('indie music')
+
   return {
     props: {
       disneyVideos,
+      productivityVideos,
+      travelVideos,
     },
   }
 }

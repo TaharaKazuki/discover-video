@@ -1,18 +1,27 @@
 import { YOUTUBE_REQUEST_URL } from 'constants/path'
 import { YoutubeApiResponse } from 'components/card/types'
 
-export const getVideos = async () => {
+export const getVideos = async (searchQuery: string) => {
   const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY
 
-  const response = await fetch(`${YOUTUBE_REQUEST_URL}${YOUTUBE_API_KEY}`)
+  try {
+    const response = await fetch(YOUTUBE_REQUEST_URL(searchQuery, YOUTUBE_API_KEY!))
+    const data = (await response.json()) as YoutubeApiResponse
 
-  const data = (await response.json()) as YoutubeApiResponse
-
-  return data.items.map((item) => {
-    return {
-      title: item.snippet.title,
-      imgUrl: item.snippet.thumbnails.high.url,
-      id: item.id.videoId,
+    if (data?.error) {
+      console.error('Youtube API error', data.error)
+      return []
     }
-  })
+    return data.items.map((item) => {
+      const id = item.id?.videoId || item.id
+      return {
+        title: item.snippet?.title,
+        imgUrl: item.snippet.thumbnails.high.url,
+        id,
+      }
+    })
+  } catch (error) {
+    console.error('Something went wrong with video library', error)
+    return []
+  }
 }
