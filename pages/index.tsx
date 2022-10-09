@@ -35,7 +35,7 @@ const Home: NextPage<Props> = ({ disneyVideos }) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const disneyVideos = getVideos()
+  const disneyVideos = await getVideos()
   console.info(disneyVideos)
   return {
     props: {
