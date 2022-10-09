@@ -10,9 +10,10 @@ import { motion } from 'framer-motion'
 type Props = {
   imgUrl?: string
   size: 'large' | 'medium' | 'small'
+  id?: number
 }
 
-const Card: FC<Props> = ({ imgUrl = IMG_URL, size = 'medium' }) => {
+const Card: FC<Props> = ({ imgUrl = IMG_URL, size = 'medium', id }) => {
   const [imgSrc, setImgSrc] = useState(imgUrl)
 
   const classMap = {
@@ -26,9 +27,11 @@ const Card: FC<Props> = ({ imgUrl = IMG_URL, size = 'medium' }) => {
     setImgSrc(IMG_URL)
   }
 
+  const scale = id === 0 ? { scaleY: 1.1 } : { scale: 1.1 }
+
   return (
     <div className={styles.container}>
-      <motion.div className={cls(styles.motionWrapper, classMap[size])} whileHover={{ scale: 1.2 }}>
+      <motion.div className={cls(styles.motionWrapper, classMap[size])} whileHover={{ ...scale }}>
         <Image
           src={imgSrc}
           alt="image"
